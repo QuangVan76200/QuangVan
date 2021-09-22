@@ -75,7 +75,7 @@ router.put('/:id', verifyToken, async(req, res, next)=>{
 
     if(!title){
         return res.json({
-           success:true,
+           success:false,
            message:'Title is required',
         })
     }
