@@ -7,6 +7,6 @@ const Accounts = new Schema({
     passWord:{type: String },
     active:{type: String},
     role: {type:String, default:''},
-    IDNumber:{type: Object},
+    IDUser:{type: Object},
 })
 module.exports=mongoose.model('accounts', Accounts)
