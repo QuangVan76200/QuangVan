@@ -87,7 +87,7 @@ router.put('/:id', verifyToken, async(req, res, next)=>{
             idImage: idImage || ' '
         }
   
-    const postUpdate={_id: req.params.id, user: req.UserID,}
+    const postUpdate={_id: req.params.id, IDUser: req.UserID,}
 
     
     updatedPost= await Post.findOneAndUpdate(postUpdate, updatedPost, {new: true})
@@ -113,7 +113,7 @@ router.put('/:id', verifyToken, async(req, res, next)=>{
 
 router.delete('/delete_Post',verifyToken,async(req, res, next)=>{
     try {
-        const postDelete ={_id: req.params.id, user:req.UserID}
+        const postDelete ={_id: req.params.id, IDUser:req.UserID}
         const deletePost = await Post.findOneAndDelete(postDelete)
     
         if(!deletePost){
