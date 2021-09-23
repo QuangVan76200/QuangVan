@@ -10,7 +10,7 @@ const Post = require('../models/Post')
 //GET POST
 router.get('/show_post', verifyToken, async(req, res, next)=>{
     try {
-        const posts= await Post.find({accounts: req.UserID}).populate('accounts',['userName'])
+        const posts= await Post.find({IDUser: req.UserID})
     res.json({
         success:true, posts
     })
@@ -26,7 +26,7 @@ router.get('/show_post', verifyToken, async(req, res, next)=>{
 
 //CREATE POST
 router.post('/news_post',verifyToken, async(req, res)=>{
-    const {title, descpription, status, idImage}=req.body; 
+    const {title, descpription, status, idImage, IDUser}=req.body; 
      
 
     // router.get('/auth',verifyToken)
@@ -49,7 +49,7 @@ router.post('/news_post',verifyToken, async(req, res)=>{
             descpription,
             idImage,
             status:'Normal Post' || 'Sales Post',
-            user: req.UserID
+            IDUser: req.UserID
             
             
         })
